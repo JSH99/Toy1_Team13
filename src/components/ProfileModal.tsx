@@ -15,7 +15,6 @@ const handleLogout = async () => {
   try {
     // 로그아웃
     await signOut(auth);
-    window.location.href = '/';
   } catch (error) {
     console.error('로그아웃 실패:', error);
   }
@@ -41,9 +40,7 @@ const ProfileModal = ({ isModalOpen, toggleModal }: Props) => {
             <ProfileText>
               <p>{user.name}</p>
               <p>{user.email}</p>
-              <Link onClick={toggleModal} to="/mypage">
-                마이페이지
-              </Link>
+              <Link to="/mypage">마이페이지</Link>
               <button onClick={handleLogout}>로그아웃</button>
             </ProfileText>
           </ModalContainer>
